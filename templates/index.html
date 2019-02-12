@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Welcome Page</title>
+        <style>
+            table {
+              font-family: arial, sans-serif;
+              border-collapse: collapse;
+              width: 100%;
+            }
+
+            td, th {
+              border: 1px solid #dddddd;
+              text-align: left;
+              padding: 8px;
+            }
+
+            tr:nth-child(even) {
+              background-color: #dddddd;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Welcome to C&R Friends!!!</h1>
+
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Full Name</th>
+                <th>Occupation</th>
+            </tr>
+
+            {% for dict in friends %}
+                <tr>
+                    <td>{{dict.id}}</td>
+                    <td>{{dict.first_name}} {{dict.last_name}}</td>
+                    <td>{{dict.occupation}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+
+        <h1>Add a Friend</h1>
+        <form class="" action="/add_friend" method="post">
+            <input type="text" name="fname" placeholder="First Name"><br>
+            <input type="text" name="lname" placeholder="Last Name"><br>
+            <input type="text" name="occupation" placeholder="Occupation"><br>
+            <input type="submit" name="" value="Add Friend">
+        </form>
+    </body>
+</html>
